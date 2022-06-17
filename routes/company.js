@@ -84,6 +84,8 @@ router.post('/name', (req, res)=>{
 });
 
 router.get('/edit/:id', (req, res)=>{
+    let Asql="SELECT * FROM amenities"
+
     let sql = `SELECT gc.id AS id, gc.cust_nm AS LeadGuest, bus.name AS TourCompany, h.name AS Hotel,
     a.activity AS Activity, am.activity AS ActivityB, ame.activity AS ActivityC, amen.activity AS ActivityD,
     ameni.activity AS ActivityE, amenit.activity AS ActivityF, gc.quantity AS TotalGuest ,gc.qt_per_act AS
@@ -98,8 +100,12 @@ router.get('/edit/:id', (req, res)=>{
 
     conn.query(sql, (err, rows)=>{
         if(err) throw err
-        res.render("editexcur",{
-            data:rows[0]
+        conn.query( Asql, (err, amen)=>{
+            if(err) throw err
+            res.render("editexcur",{
+                data:rows[0],
+                Data: amen
+            });
         });
     });
 });

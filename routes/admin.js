@@ -195,6 +195,7 @@ router.get('/cart', (req, res)=>{
 })
 
 router.get('/Cartedit/:id', (req, res)=>{
+    let Asql="SELECT * FROM amenities"
     let sql = `SELECT gc.id AS id,gc.activityA_id AS a1, gc.activityB_id AS a2, gc.activityC_id AS a3, gc.activityD_id 
     AS a4, gc.activityE_id AS a5, gc.activityF_id AS a6, gc.cust_nm AS LeadGuest, a.activity AS act,a.cost AS Price,
     am.activity AS actB, am.cost AS Price2, ame.activity AS actC, ame.cost AS Price3, amen.activity AS actD, 
@@ -208,8 +209,12 @@ router.get('/Cartedit/:id', (req, res)=>{
 
     conn.query(sql, (err, rows)=>{
         if(err) throw err
-        res.render("editCart",{
-            data:rows[0]
+        conn.query(Asql, (err, amn)=>{
+            if(err) throw err
+            res.render("editCart",{
+                data:rows[0],
+                Data:amn
+            });
         });
     });
 });
