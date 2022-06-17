@@ -255,8 +255,25 @@ router.post('/checkout',(req, res)=>{
     let sql ="INSERT INTO localitinerary SET?"
     conn.query(sql, data, (err, rows)=>{
         if(err) throw err
-        res.redirect('/admin/cart')
+        res.redirect('/admin/lItinerary')
     });
 });
+
+router.get('/lItinerary', (req, res)=>{
+    let sql=`SELECT  gc.cust_nm AS LeadGuest,gc.total_cost AS TotalCost,  a.activity AS act,am.activity AS actB, ame.activity AS actC, 
+    amen.activity AS actD, ameni.activity AS actE,amenit.activity AS actF, gc.voucher_num AS Voucher, gc.tot_guest
+    AS TotalGuest , s.status AS Status, date_format(gc.excur_dt, '%Y-%m-%d') AS ExcursionDate FROM dolphincove.localitinerary 
+    AS gc LEFT JOIN dolphincove.amenities AS a ON gc.actA_id = a.id LEFT JOIN dolphincove.amenities AS am ON gc.actB_id = am.id 
+    LEFT JOIN dolphincove.amenities AS ame ON gc.actC_id = ame.id LEFT JOIN dolphincove.amenities AS amen ON gc.actD_id = amen.id 
+    LEFT JOIN dolphincove.amenities AS ameni ON gc.actE_id = ameni.id LEFT JOIN dolphincove.amenities AS amenit ON gc.actF_id = 
+    amenit.id JOIN dolphincove.status AS s ON gc.stat_id = s.id;`
+
+    conn.query(sql, (err, rows)=>{
+        if(err) throw err
+        res.render('Witinerary',{
+            data:rows
+        })
+    })
+})
 
 module.exports = router

@@ -72,14 +72,14 @@ form{
     /* border:1px solid #39A4AC;
     border-radius: 5px;
     border-style:dashed; */
-    margin-top: 20px;
+    margin-top:50px;
     padding-left: 2%;
     padding-right: 2%;
     padding-bottom: 1%;
 }
 
 .name,.t_comp,.hotel,.act1,.act2,.act3,.act4,.act5,.act6,
-.total,.qt_per_act,.dateBk,.excurdt{
+.total,.qt_per_act,.dateBk,.excurdt, .tCost,.stat, .Vnum{
     border: 1px solid #39A4AC;
     border-radius: 10px;
     border-style: dashed;
