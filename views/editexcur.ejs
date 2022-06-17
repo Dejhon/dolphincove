@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/company.css">
+</head>
+<body>
+    
+    <header>
+        <nav>
+            <ul>
+                <div class="logo"><a href="/" id="image"><img src="/pictures/logo.png" alt="Logo"></a></div>
+                <li><a href="/company/cart">CART</a></li>
+                <li class="login"><a href="/login/logout">LOG OUT</a></li>
+                <div class="contact"><%= username %></div>
+            </ul>
+        </nav>
+    </header>
+
+      
+            <form action="/company/update" method="post" autocomplete="off">
+                <div class="container">
+                    <div class="cust_name">
+                        <label for="">Lead Name:</label>
+                        <input type="text" name="ld_nm" value="<%= data.LeadGuest %>" readonly>
+                    </div>
+                    <div class="currAct">
+                        <label for="">Current Activities:</label><br>
+                        <div>
+                            <%=data.Activity  %> &nbsp;&nbsp;
+                            <%=data.ActivityB %> &nbsp;&nbsp;
+                            <%=data.ActivityC %> &nbsp;&nbsp;
+                            <%=data.ActivityD %> &nbsp;&nbsp;
+                            <%=data.ActivityE %> &nbsp;&nbsp;
+                            <%=data.ActivityF %> &nbsp;&nbsp;
+                        </div>
+                        <input type="hidden" name="id" value="<%= data.id %> ">
+                    </div>
+                    <div class="activities">
+                            <label for="">Change Activity:</label>
+                            <select name="act" multiple="multiple">
+                                <option value="1">Dolphin Swim Adventure</option>
+                                <option value="2">Shark Encounter</option>
+                                <option value="3">Encounter</option>
+                                <option value="4">Admission Plus</option>
+                                <option value="5">Dolphin Royal Swim</option>
+                                <option value="6">Yaaman Adventure Plus Swim With Dolphins</option>
+                            </select>
+                        <p style="color: red;">Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
+                    </div>
+                    <div class="quant">
+                        <div class="qt1">
+                            <label for="">Total Guest:</label>
+                            <input type="number" name="quant" value="<%= data.TotalGuest%>" required>
+                        </div>
+                        <div class="qt2">
+                            <label for="">Quantity per Activity:</label>
+                            <input type="number" name="qt" value="<%= data.QuantityperActivity %>" required>
+                        </div>                    
+                    </div>
+                    <div class="dates">
+                        <div class="curr_dt">
+                            <label for="">Current Date:</label>
+                            <input type="date" value="<%= data.DateBooked%>" readonly>
+                        </div>
+                        <div class="excur_dt">
+                            <label for="">Excursion Date:</label>
+                            <input type="date" name="excur_dt" value="<%= data.ExcursionDate%>" required>
+                        </div>
+                    </div>
+                    <div class="sub_btn">
+                        <input type="submit" value="Update">
+                    </div>
+                </div>
+            </form>
+
+</body>
+</html>

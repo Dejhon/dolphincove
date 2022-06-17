@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/wCart.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <div class="logo"><a href="/" id="image"><img src="/pictures/logo.png" alt="Logo"></a></div>
+                <li><a href="/admin">HOME</a></li>
+                <li class="login"><a href="/login/logout">LOG OUT</a></li>
+                <div class="contact"><%= username %></div>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+    <form action="/admin/checkout" method="post">
+
+        <div class="itinerary">
+            <% data.forEach(excur => { %>
+             <div class="name">
+                <p>Lead Guest: <%= excur.LeadGuest %></p>
+                <input type="hidden" name="cust_nm" value="<%=excur.LeadGuest%>">
+             </div>
+             <div class="activities">
+                <div class="act1">
+                    <p>Activity 1: <%= excur.a1%></p>
+                    <input type="hidden" name="p1" value="<%= excur.Price %> ">
+                    <input type="hidden" name="a1" value="<%= excur.a1 %>">
+                    <input type="hidden" name="a1_id" value="<%= excur.AID%>">
+                </div> 
+                <div class="act2">
+                    <p>Activity 2: <%= excur.a2%></p>
+                    <input type="hidden"  name="p2" value="<%= excur.Price2 %> ">
+                    <input type="hidden" name="a2" value="<%= excur.a2 %>">
+                    <input type="hidden" name="a2_id" value="<%= excur.AMID%>">
+                </div>
+                <div class="act3">
+                    <p>Activity 3: <%= excur.a3%></p>
+                    <input type="hidden"  name="p3"value="<%= excur.Price3 %> ">
+                    <input type="hidden" name="a3" value="<%= excur.a3 %>">
+                    <input type="hidden" name="a3_id" value="<%= excur.AMEID%>">
+
+                </div>
+                <div class="act4">
+                    <p>Activity 4: <%= excur.a4%></p>
+                    <input type="hidden"  name="p4"value="<%= excur.Price4 %> ">
+                    <input type="hidden" name="a4" value="<%= excur.a4 %>">
+                    <input type="hidden" name="a4_id" value="<%= excur.AMENID%>">
+
+                </div>
+                <div class="act5">
+                    <p>Activity 5: <%= excur.a5%></p>
+                    <input type="hidden"  name="p5"value="<%= excur.Price5 %> ">
+                    <input type="hidden" name="a5" value="<%= excur.a5 %>">
+                    <input type="hidden" name="a5_id" value="<%= excur.AMENIID%>">
+
+                </div>
+                <div class="act6">
+                    <p>Activity 6: <%= excur.a6%></p>
+                    <input type="hidden"  name="p6" value="<%= excur.Price6 %> ">
+                    <input type="hidden" name="a6" value="<%= excur.a6 %>">
+                    <input type="hidden" name="a6_id" value="<%= excur.AMEMITID%>">
+
+                </div>
+             </div>
+             <div class="total">
+                <p>Total Guest: <%= excur.TotalGuest%></p>
+                <input type="hidden" name="t_guest" value="<%=excur.TotalGuest%>">
+             </div>
+             <div class="qt_per_act">
+                <p>Quantity Per Activity: <%= excur.QuantityperActivity %> </p>
+             </div>
+             <div class="dateBk">
+                <p>Date Booked: <%=excur.DateBooked%></p>
+             </div>
+             <div class="excurdt">
+                <p>Excursion Date: <%= excur.ExcursionDate%></p>
+                <input type="hidden" name="excur" value="<%=excur.ExcursionDate%>">
+             </div>
+    
+             <div class="edit">
+                <button class="check">CHECKOUT</button>
+                <button><a href="/admin/Cartedit/<%= excur.id %> ">EDIT</a></button>
+             </div>
+             <% }); %>
+        </div>
+    </form>
+    </main>    
+</body>
+</html>

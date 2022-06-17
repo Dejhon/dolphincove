@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/company.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <div class="logo"><a href="/" id="image"><img src="/pictures/logo.png" alt="Logo"></a></div>
+                <li><a href="/company/vouchers">VOUCHERS</a></li>
+                <li><a href="/company/cart">CART</a></li>
+                <li class="login"><a href="/login/logout">LOG OUT</a></li>
+                <div class="contact"><%= username %></div>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form action="/company/booking" method="post" autocomplete="off">
+            <div class="container">
+                <div class="cust_name">
+                    <label for="">Lead Name:</label>
+                    <input type="text" name="ld_nm" placeholder="Customer Name" required>
+                </div>
+                <div class="origin">
+                    <div class="tourComp">
+                        <label for="">Select Company:</label>
+                        <select name="tr_comp">
+                            <% datA.forEach(bus=> { %>
+                            <option value="<%= bus.id %> "><%= bus.name %> </option>
+                            <!-- <option value="16">Jamaica Tours</option>
+                            <option value="17">Island Routes</option> -->
+                        <% }); %>
+
+                        </select>
+                    </div>
+                    <div class="hotel">
+                        <label for="">Select Hotel:</label>
+                        <select name="hotel">
+                            <% Data.forEach(hot=> { %>
+                                 <option value="<%= hot.id %> "><%= hot.name %> </option>
+                            <% }); %>
+                        </select>
+                    </div>
+                </div>
+                <div class="activities">
+                    <label for="">Select Activities:</label>
+                    <select name="act" multiple="multiple">
+                        <% data.forEach(elem=> { %>
+                            <option value="<%= elem.id %> "><%= elem.activity %> || $<%= elem.cost %>USD  </option>
+                        <% }); %>
+                    </select>
+                </div>
+                <div class="quant">
+                    <div class="qt1">
+                        <label for="">Total Guest:</label>
+                        <input type="number" name="quant" placeholder="Number of Guest" required>
+                    </div>
+                    <div class="qt2">
+                        <label for="">Quantity per Activity:</label>
+                        <input type="number" name="qt" placeholder="Number of Guest" required>
+                    </div>                    
+                </div>
+                <div class="dates">
+                    <div class="curr_dt">
+                        <label for="">Current Date:</label>
+                        <input type="date" name="curr_dt" required>
+                    </div>
+                    <div class="excur_dt">
+                        <label for="">Excursion Date:</label>
+                        <input type="date" name="excur_dt" required>
+                    </div>
+                </div>
+                <div class="sub_btn">
+                    <input type="submit" value="Book">
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

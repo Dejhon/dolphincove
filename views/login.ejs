@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply</title>
+
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <div class="logo"><a href="/" id="image"><img src="/pictures/logo.png" alt="Logo"></a></div>
+                <li><a href="/">HOME</a></li>
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="/form">SIGN UP</a></li>
+                <li class="login"><a href="/login">LOGIN</a></li>
+                <div class="contact">1876-123-4567</div>
+            </ul>
+        </nav>
+    </header>
+
+      <div class="wapper">
+        <div class="info">
+             <p>
+                Grupo Dolphin keeps growing and today it announced its fourth habitat in Jamaica called "Dolphin Cove Puerto Seco", a place surrounded by crystal water beaches and size of 2,926m2 where four bottled nose dolphins live. These dolphins will be protected by the highest standards of Grupo Dolphin. In this new habitat, the guests will be able to enjoy a relaxing day in one of the best beaches of Jamaica inside the beach club "Puerto Seco Beach", which is with no doubt the perfect place for unforgettable vacations.
+             </p><br>
+             <p>
+                Dolphin Cove in Ocho Rios, Jamaica, is one of the sister parks of Dolphin Discovery and is the latest attraction to become a Certified Autism Center (CAC). The habitat implemented a training and certification program provided by the International Board of Credentialing and Continuing Education Standards (IBCCES) to help ensure guests and families with children who have autism have the best possible experience.
+             </p>
+        </div>
+        <div class="fm">
+            <% if(message.length > 0) { %>
+                <div class="message">
+                 <%= message %>
+                </div> 
+              <% } %>
+            <form action="/login/login" method="post" autocomplete="off">
+                <h2><%= title%></h2>
+                <div class="container">
+                    <div class="name">
+                        <label for="Name">Username:</label><br>
+                        <input type="text" name="name" placeholder="Username" required>
+                    </div>
+                    <div class="password">
+                        <label for="password">Password:</label><br>
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <!-- <small><a href="/login">Login Instead?</a></small> -->
+                    <div class="sub_btn">
+                        <input type="submit" value="Register">
+                    </div>
+                </div>
+             </form>
+
+            
+
+        </div>
+      </div>
+         
+      <footer>
+        <div class="wrapper">
+            <div class="links">
+                <ul>
+                    <li><a href="#">Information</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Investor Relations</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and Condition</a></li>
+                </ul>
+            </div>
+            <div class="contacts">
+                <h3>Contact Us</h3>
+                <h2>1876-123-4567</h2>
+                <p>Canada: 1-866-793-1905</p>
+                <p>United Kingdom: 0-800-793-1905</p>
+                <p>Mexico: 1-866-793-1905</p>
+                <p>United States: 1-866-793-1905</p>
+                <h3>Partners:</h3>
+                <div class="pics">
+                    <div class="img1">
+                        <img src="/pictures/dd-logo.png" alt="">
+                    </div>                        
+                    <div class="img2">
+                        <img src="/pictures/dc-logo.png" alt="">
+                    </div>                        
+                </div>
+            </div>
+        </div>
+        <div class="dolplink">
+            <a href="">www.dolphincoveja.com</a>
+        </div>
+     </footer>
+     
+</body>
+</html>

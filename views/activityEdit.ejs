@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/activityedit.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <div class="logo"><a href="/" id="image"><img src="/pictures/logo.png" alt="Logo"></a></div>
+                <li><a href="#">ACTIVITIES</a></li>
+                <li><a href="#">TOUR COMPANIES</a></li>
+                <li><a href="#">WALK-IN</a></li>
+                <li class="login"><a href="/login/logout">LOG OUT</a></li>
+                <div class="contact"><%= username %></div>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form action="/admin/update" method="post">
+            <div class="container">
+                <div class="name">
+                    <input type="hidden" name="id" value="<%= data.id %>">
+                    <label for="">Activity Name:</label>
+                    <input type="text" name="name" value="<%= data.activity %>" readonly>
+                </div>
+                <div class="price">
+                    <div class="currP">
+                        <label for="">Current Cost:</label>
+                        <input type="text" value="<%= data.cost%>" readonly><br>
+                    </div>
+                    <div class="newP">
+                        <label for="">New Cost:</label>
+                        <input type="number" name="new_cost" required>
+                    </div>
+                </div>
+                <div class="sub_btn">
+                    <input type="submit" value="UPDATE">
+                </div>
+            </div>
+        </form>
+    </main>
+    
+</body>
+</html>

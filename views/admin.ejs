@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <div class="logo"><a href="/" id="image"><img src="/pictures/logo.png" alt="Logo"></a></div>
+                <li><a href="/admin/addActivity">ADD ACTIVITY</a></li>
+                <li><a href="/admin/companies">TOUR COMPANIES</a></li>
+                <li><a href="/admin/walk-ins">WALK-IN</a></li>
+                <li class="login"><a href="/login/logout">LOG OUT</a></li>
+                <div class="contact"><%= username %></div>
+            </ul>
+        </nav>
+    </header>
+    <main>
+         <table>
+            <thead>
+                <tr>
+                    <th>Activities</th>
+                    <th>Cost</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach(amn => { %>
+                <tr>
+                    <td><%= amn.activity %> </td>
+                    <td>$<%= amn.cost %>USD</td>
+                    <td class="btns">
+                        <button><a href="/admin/edit/<%=amn.id%>">EDIT</a></button>
+                        <button><a href="/admin/deleteact/<%=amn.id%>">DELETE</a></button>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+         </table>
+    </main>
+</body>
+</html>

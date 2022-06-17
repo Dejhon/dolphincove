@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply</title>
+
+    <link rel="stylesheet" href="/css/resgistercomp.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <div class="logo"><a href="/" id="image"><img src="/pictures/logo.png" alt="Logo"></a></div>
+                <li><a href="/admin">HOME</a></li>
+                <li><a href="/admin/companies">TOUR COMPANY</a></li>
+                <div class="contact"><%= username%></div>
+            </ul>
+        </nav>
+    </header>
+            <form action="/admin/register" method="post" autocomplete="off">
+                <h2><%= title%></h2>
+                <div class="container">
+                    <div class="name">
+                        <label for="Name">Username:</label><br>
+                        <input type="text" name="name" placeholder="Company Name" required>
+                    </div>
+                    <div class="mail">
+                        <label for="Email">Email:</label><br>
+                        <input type="email" name="mail" placeholder="Email Address" required>
+                    </div>
+                    <div class="password">
+                        <label for="password">Password:</label><br>
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="sub_btn">
+                        <input type="submit" value="Register">
+                    </div>
+                </div>
+             </form>
+</body>
+</html>

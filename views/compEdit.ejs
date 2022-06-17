@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/compEdit.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <div class="logo"><a href="/" id="image"><img src="/pictures/logo.png" alt="Logo"></a></div>
+                <li><a href="#">ACTIVITIES</a></li>
+                <li><a href="/admin/add">ADD USER</a></li>
+                <li class="login"><a href="/login/logout">LOG OUT</a></li>
+                <div class="contact"><%= username %></div>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form action="/admin/compUpdate" method="post" autocomplete="off">
+            <div class="container">
+                <div class="name">
+                    <label for="">Company Name:</label>
+                    <input type="text" name="name" value="<%= data.name %>" readonly>
+                    <input type="hidden" name="id" value="<%= data.id %>">
+                </div>
+                <div class="mail">
+                    <label for="">Email:</label>
+                    <input type="email" name="mail" value="<%=data.email%>" required>
+                </div>
+                <div class="password">
+                    <label for="">Password:</label>
+                    <input type="text" name="password" value="<%= data.password %>" required>
+                </div>
+                <div class="sub_btn">
+                    <input type="submit" value="UPDATE">
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
