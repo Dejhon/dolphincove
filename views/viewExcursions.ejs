@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/cart.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <div class="logo"><a href="/" id="image"><img src="/pictures/logo.png" alt="Logo"></a></div>
+                <li><a href="/company">HOME</a></li>
+                <!-- <li><a href="/company/cart">CART</a></li> -->
+                <li class="login"><a href="/login/logout">LOG OUT</a></li>
+                <div class="contact"><%= username %></div>
+            </ul>
+        </nav>
+    </header>
+
+
+    <% data.forEach(excur => { %>
+
+    <div class="itinerary">
+         <div class="name">
+            <p>Lead Guest: <%= excur.LeadGuest %></p>
+            <input type="hidden" name="cust_nm" value="<%=excur.LeadGuest%>">
+         </div>
+         <div class="t_comp">
+            <p>TourCompany: <%= excur.TourCompany%></p>
+            <input type="hidden" name="tc" value="<%=excur.Tour%>">
+         </div>
+         <div class="activities">
+            <div class="act1">
+                <p>Activity 1: <%= excur.a1%></p>
+                <input type="hidden" name="p1" value="<%= excur.Price %> ">
+                <input type="hidden" name="a1" value="<%= excur.a1 %>">
+            </div> 
+            <div class="act2">
+                <p>Activity 2: <%= excur.a2%></p>
+                <input type="hidden"  name="p2" value="<%= excur.Price2 %> ">
+                <input type="hidden" name="a2" value="<%= excur.a2 %>">
+            </div>
+            <div class="act3">
+                <p>Activity 3: <%= excur.a3%></p>
+                <input type="hidden"  name="p3"value="<%= excur.Price3 %> ">
+                <input type="hidden" name="a3" value="<%= excur.a3 %>">
+            </div>
+            <div class="act4">
+                <p>Activity 4: <%= excur.a4%></p>
+                <input type="hidden"  name="p4"value="<%= excur.Price4 %> ">
+                <input type="hidden" name="a4" value="<%= excur.a4 %>">
+            </div>
+            <div class="act5">
+                <p>Activity 5: <%= excur.a5%></p>
+                <input type="hidden"  name="p5"value="<%= excur.Price5 %> ">
+                <input type="hidden" name="a5" value="<%= excur.a5 %>">
+            </div>
+            <div class="act6">
+                <p>Activity 6: <%= excur.a6%></p>
+                <input type="hidden"  name="p6" value="<%= excur.Price6 %> ">
+                <input type="hidden" name="a6" value="<%= excur.a6 %>">
+            </div>
+         </div>
+         <div class="total">
+            <p>Total Guest: <%= excur.TotalGuest%></p>
+            <input type="hidden" name="t_guest" value="<%=excur.TotalGuest%>">
+         </div>
+         <div class="cost">
+            <p>Grand Total: $<%= excur.Total %>USD </p>
+         </div>
+         <div class="excurdt">
+            <p>Excursion Date: <%= excur.ExcursionDate%></p>
+            <input type="hidden" name="excur" value="<%=excur.ExcursionDate%>">
+         </div>
+         <div class="status">
+            <p>Payment Status: <%= excur.Status %> </p>
+         </div>
+         <div class="voucher">
+            <p>Voucher Number: <%= excur.VoucherNumber %> </p>
+         </div>
+    </div>
+    <hr style="margin-top:10px; border-color:darkblue;">
+    <% }); %>
+
+            
+</body>
+</html>

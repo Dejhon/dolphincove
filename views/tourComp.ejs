@@ -14,7 +14,7 @@
             <ul>
                 <div class="logo"><a href="/" id="image"><img src="/pictures/logo.png" alt="Logo"></a></div>
                 <li><a href="/admin">HOME</a></li>
-                <li><a href="/admin">ACTIVITIES</a></li>
+                <li><a href="/admin/voucher">EXCURSIONS</a></li>
                 <li><a href="/admin/add">ADD USER</a></li>
                 <li class="login"><a href="/login/logout">LOG OUT</a></li>
                 <div class="contact"><%= username %></div>
@@ -33,15 +33,18 @@
             </thead>
             <tbody>
                 <% data.forEach(comp => { %>
-                    <tr>
-                        <td><%= comp.name %> </td>
-                        <td><%= comp.email %></td>
-                        <td><%= comp.password %></td>
-                        <td class="btns">
-                            <button><a href="/admin/compEdit/<%= comp.id %>">EDIT</a></button>
-                        </td>
-                    </tr>
-                <% }); %>
+                        <tr>
+                            <td>
+                                <%= comp.name %>
+                                <input type="hidden" name="comp_id"  value="<%=comp.id%>">
+                             </td>
+                            <td><%= comp.email %></td>
+                            <td><%= comp.password %></td>
+                            <td class="btns">
+                                <button><a href="/admin/compEdit/<%= comp.id %>">EDIT</a></button>
+                            </td>
+                        </tr>
+                    <% }); %>
             </tbody>
         </table>
     </main>

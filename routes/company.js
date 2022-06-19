@@ -152,7 +152,7 @@ router.post('/checkout',(req, res)=>{
     let sql ="INSERT INTO intinerary SET?"
     conn.query(sql, data, (err, rows)=>{
         if(err) throw err
-        res.redirect('/company/cart')
+        res.redirect('/company')
     })
 })
 
