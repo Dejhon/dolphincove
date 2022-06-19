@@ -93,19 +93,21 @@ router.get('/compEdit/:id', (req, res)=>{
 
 router.post('/compUpdate', (req, res)=>{
     const id = req.body.id;
-    let udata={
-        password: req.body.password
-    }
+    // let udata={
+    //     password: req.body.password
+    // }
     let sql = "UPDATE buscompany SET email ='"+req.body.mail+"',password ='"+req.body.password+"' WHERE id ="+id; 
 
     let userUpdate = `UPDATE users SET password = ${req.body.password} WHERE user_nm = ${req.body.name}`
+    // let userUpdate = "UPDATE users SET password ='"+req.body.password+"' WHERE user_nm ="+ req.body.name;
     
     conn.query(sql, (err, rows)=>{
      if(err) throw err
-     conn.query(userUpdate, udata, (err, rows)=>{
-        if(err)throw err
-        res.redirect('/admin')
-      });
+     conn.query(userUpdate, function (err, rows) {
+             if (err)
+                 throw err;
+             res.redirect('/admin');
+         });
     });
 });
 
