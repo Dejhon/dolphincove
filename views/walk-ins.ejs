@@ -13,7 +13,7 @@
             <ul>
                 <div class="logo"><a href="/" id="image"><img src="/pictures/logo.png" alt="Logo"></a></div>
                 <li><a href="/admin">HOME</a></li>
-                <li><a href="/admin/cart">VIEW CART</a></li>
+                <li><a href="/admin/Scart">VIEW CART</a></li>
                 <li class="login"><a href="/login/logout">LOG OUT</a></li>
                 <div class="contact"><%= username %></div>
             </ul>
@@ -36,6 +36,7 @@
                             <option value="<%= elem.id %> "><%= elem.activity %> || $<%= elem.cost %>USD  </option>
                         <% }); %>
                     </select>
+                    <p style="color:red;">Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
                 </div>
                 <div class="quant">
                     <div class="qt1">

@@ -104,8 +104,7 @@ router.post('/compUpdate', (req, res)=>{
     conn.query(sql, (err, rows)=>{
      if(err) throw err
      conn.query(userUpdate, function (err, rows) {
-             if (err)
-                 throw err;
+             if(err) throw err
              res.redirect('/admin');
          });
     });
@@ -175,7 +174,13 @@ router.post('/booking', (req, res)=>{
     });
 });
 
-router.get('/cart', (req, res)=>{
+router.get('/Scart', (req, res)=>{
+    res.render('cartsearch',{
+        title: "Cart"
+    });
+});
+
+router.post('/cart', (req, res)=>{
     let sql = `SELECT gc.id AS id, a.activity AS a1, am.activity AS a2, ame.activity AS a3, amen.activity 
     AS a4, ameni.activity AS a5, amenit.activity a6, gc.cust_nm AS LeadGuest, a.id AS AID, a.activity AS act,a.cost AS Price,
     am.activity AS actB, am.id AS AMID, am.cost AS Price2, ame.id AS AMEID,ame.activity AS actC, ame.cost AS Price3, amen.activity AS actD, 
@@ -186,7 +191,7 @@ router.get('/cart', (req, res)=>{
     a ON gc.activityA_id = a.id LEFT JOIN dolphincove.amenities AS am ON gc.activityB_id = am.id LEFT JOIN dolphincove.amenities
     AS ame ON gc.activityC_id = ame.id LEFT JOIN dolphincove.amenities AS amen ON gc.activityD_id = amen.id LEFT JOIN 
     dolphincove.amenities AS ameni ON gc.activityE_id = ameni.id LEFT JOIN dolphincove.amenities AS amenit ON gc.activityF_id = 
-    amenit.id`
+    amenit.id WHERE cust_nm LIKE '%${req.body.cust_nm}%'`
 
     conn.query(sql, (err, rows)=>{
         if(err) throw err
@@ -265,6 +270,14 @@ router.post('/checkout',(req, res)=>{
         res.redirect('/admin/lItinerary')
     });
 });
+
+router.get('/cartdelete/:id', (req, res)=>{
+    let sql = `DELETE FROM localscart WHERE id = ${req.params.id}`
+    conn.query(sql, (err, rows)=>{
+        if(err) throw err
+        res.redirect('/admin/walk-ins')
+    })
+})
 
 router.get('/lItinerary', (req, res)=>{
     let sql=`SELECT  gc.cust_nm AS LeadGuest,gc.total_cost AS TotalCost,  a.activity AS act,am.activity AS actB, ame.activity AS actC, 
