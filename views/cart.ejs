@@ -40,32 +40,32 @@
          </div>
          <div class="activities">
             <div class="act1">
-                <p>Activity 1: <%= excur.Activity%></p>
+                <p>Activity A: <%= excur.Activity%></p>
                 <input type="hidden" name="p1" value="<%= excur.Price %> ">
                 <input type="hidden" name="a1" value="<%= excur.a1 %>">
             </div> 
             <div class="act2">
-                <p>Activity 2: <%= excur.ActivityB%></p>
+                <p>Activity B: <%= excur.ActivityB%></p>
                 <input type="hidden"  name="p2" value="<%= excur.Price2 %> ">
                 <input type="hidden" name="a2" value="<%= excur.a2 %>">
             </div>
             <div class="act3">
-                <p>Activity 3: <%= excur.ActivityC%></p>
+                <p>Activity C: <%= excur.ActivityC%></p>
                 <input type="hidden"  name="p3"value="<%= excur.Price3 %> ">
                 <input type="hidden" name="a3" value="<%= excur.a3 %>">
             </div>
             <div class="act4">
-                <p>Activity 4: <%= excur.ActivityD%></p>
+                <p>Activity D: <%= excur.ActivityD%></p>
                 <input type="hidden"  name="p4"value="<%= excur.Price4 %> ">
                 <input type="hidden" name="a4" value="<%= excur.a4 %>">
             </div>
             <div class="act5">
-                <p>Activity 5: <%= excur.ActivityE%></p>
+                <p>Activity E: <%= excur.ActivityE%></p>
                 <input type="hidden"  name="p5"value="<%= excur.Price5 %> ">
                 <input type="hidden" name="a5" value="<%= excur.a5 %>">
             </div>
             <div class="act6">
-                <p>Activity 6: <%= excur.ActivityF%></p>
+                <p>Activity F: <%= excur.ActivityF%></p>
                 <input type="hidden"  name="p6" value="<%= excur.Price6 %> ">
                 <input type="hidden" name="a6" value="<%= excur.a6 %>">
             </div>
@@ -79,6 +79,7 @@
          </div>
          <div class="Tprice">
             <p>Total Cost : $<%=(excur.Price + excur.Price2 + excur.Price3 + excur.Price4 + excur.Price5 + excur.Price6) * excur.TotalGuest %>USD</p>
+            <input type="hidden"  name="gPrice" value="<%=((excur.Price + excur.Price2 + excur.Price3 + excur.Price4 + excur.Price5 + excur.Price6) * excur.TotalGuest ) %> ">
          </div>
          <div class="dateBk">
             <p>Date Booked: <%=excur.DateBooked%></p>
