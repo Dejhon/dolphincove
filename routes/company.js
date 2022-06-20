@@ -136,7 +136,7 @@ router.post('/checkout',(req, res)=>{
     voucherNumber = Math.floor(Math.random() *100) + "DC" + new Date().toJSON().slice(0,10).split('-').reverse().join('')
     let data ={
                 cust_nm: req.body.cust_nm,
-                tour_comp_id: req.body.tc,
+                tr_comp_id: req.body.tc,
                 activity_id: req.body.a1,
                 activityB_id: req.body.a2,
                 activityC_id: req.body.a3,
