@@ -113,20 +113,9 @@ router.get('/edit/:id', (req, res)=>{
 router.post('/update', (req, res)=>{
        const id = req.body.id;
 
-       let data ={
-        activity_id: req.body.act[0],
-        activityB_id: req.body.act[1],
-        activityC_id: req.body.act[2],
-        activityD_id: req.body.act[3],
-        activityE_id: req.body.act[4],
-        activityF_id: req.body.act[5],
-        quantity: req.body.quant,
-        qt_per_act: req.body.qt,
-        excur_dt: req.body.excur_dt
-       }
+       let sql = "UPDATE guestcart SET activity_id ='"+req.body.act[0]+"',activityB_id ='"+req.body.act[1]+"',activityC_id ='"+req.body.act[2]+"',activityD_id ='"+req.body.act[3]+"',activityE_id ='"+req.body.act[4]+"',activityF_id ='"+req.body.act[5]+"',quantity ='"+req.body.quant+"',qt_per_act ='"+req.body.qt+"',excur_dt ='"+req.body.excur_dt+"' WHERE id ="+id;
 
-       let sql = "UPDATE guestcart SET ?"; 
-       conn.query(sql, data, (err, rows)=>{
+       conn.query(sql, (err, rows)=>{
         if(err) throw err
         res.redirect('/company/cart')
        });
@@ -162,11 +151,11 @@ router.get('/vouchers', (req,res)=>{
     amen.activity AS a4, ameni.activity AS a5, amenit.activity AS a6, bus.name AS TourCompany, 
     gc.cust_nm AS LeadGuest, s.status AS Status, gc.total_cost AS Total, gc.total_guest AS TotalGuest, 
     gc.voucher_num AS VoucherNumber, date_format(gc.excur_dt, '%Y-%m-%d') AS ExcursionDate FROM dolphincove.intinerary 
-    AS gc JOIN dolphincove.buscompany AS bus ON gc.tour_comp_id = bus.id JOIN dolphincove.status AS s ON gc.status_id = s.id 
+    AS gc JOIN dolphincove.buscompany AS bus ON gc.tr_comp_id = bus.id JOIN dolphincove.status AS s ON gc.status_id = s.id 
     LEFT JOIN dolphincove.amenities AS a ON gc.activity_id = a.id LEFT JOIN dolphincove.amenities AS am ON gc.activityB_id = am.id 
     LEFT JOIN dolphincove.amenities AS ame ON gc.activityC_id = ame.id LEFT JOIN dolphincove.amenities AS amen ON gc.activityD_id = amen.id 
     LEFT JOIN dolphincove.amenities AS ameni ON gc.activityE_id = ameni.id LEFT JOIN dolphincove.amenities AS amenit ON gc.activityF_id = 
-    amenit.id WHERE bus.name like '%${req.session.username}%'`
+    amenit.id WHERE bus.name = '${req.session.username}'`
 
     conn.query(sql, (err, rows)=>{
         if(err) throw err
