@@ -122,7 +122,9 @@ router.post('/update', (req, res)=>{
 });
 
 router.post('/checkout',(req, res)=>{
-    voucherNumber = Math.floor(Math.random() *100) + "DC" + new Date().toJSON().slice(0,10).split('-').reverse().join('')
+    let tCost = parseInt(req.body.p1 + req.body.p2 + req.body.p3 + req.body.p4 + req.body.p5 + req.body.p6);
+    let gTotal = tCost * parseInt(req.body.t_guest);
+    let voucherNumber = Math.floor(Math.random() *100) + "DC" + new Date().toJSON().slice(0,10).split('-').reverse().join('')
     let data ={
                 cust_nm: req.body.cust_nm,
                 tr_comp_id: req.body.tc,
@@ -134,7 +136,7 @@ router.post('/checkout',(req, res)=>{
                 activityF_id: req.body.a6,
                 origin: req.body.hot_id,
                 total_guest: req.body.t_guest,
-                total_cost : parseInt(req.body.p1 + req.body.p2 + req.body.p3 + req.body.p4 + req.body.p5 + req.body.p6)*req.body.t_guest,
+                total_cost : gTotal,
                 excur_dt: req.body.excur,
                 voucher_num : voucherNumber
               }

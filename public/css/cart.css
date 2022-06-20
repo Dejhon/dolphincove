@@ -78,7 +78,7 @@ nav .contact{
     margin-top: 50px;
 }
 
-.name,.t_comp,.hotel,.act1,.act2,.act3,.act4,.act5,.act6,
+.name,.t_comp,.hotel,.act1,.act2,.act3,.act4,.act5,.act6,.Tprice,
 .total,.qt_per_act,.dateBk,.excurdt, .voucher,.status, .cost, .stat{
     border: 1px solid #39A4AC;
     border-radius: 10px;

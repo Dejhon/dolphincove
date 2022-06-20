@@ -77,6 +77,9 @@
          <div class="qt_per_act">
             <p>Quantity Per Activity: <%= excur.QuantityperActivity %> </p>
          </div>
+         <div class="Tprice">
+            <p>Total Cost : $<%=(excur.Price + excur.Price2 + excur.Price3 + excur.Price4 + excur.Price5 + excur.Price6) * excur.TotalGuest %>USD</p>
+         </div>
          <div class="dateBk">
             <p>Date Booked: <%=excur.DateBooked%></p>
          </div>
