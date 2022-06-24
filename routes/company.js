@@ -121,6 +121,14 @@ router.post('/update', (req, res)=>{
        });
 });
 
+router.get('/delete/:id', (req, res)=>{
+    let sql = `DELETE FROM guestcart WHERE id = ${req.params.id}`
+    conn.query(sql, (err, rows)=>{
+        if(err) throw err
+        res.redirect('/admin/walk-ins')
+    })
+})
+
 router.post('/checkout',(req, res)=>{
     let tCost = parseInt(req.body.p1 + req.body.p2 + req.body.p3 + req.body.p4 + req.body.p5 + req.body.p6);
     let gTotal = tCost * parseInt(req.body.t_guest);

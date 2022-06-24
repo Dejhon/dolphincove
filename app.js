@@ -19,6 +19,7 @@ var signup = require('./routes/signup');
 var auth = require('./routes/auth');
 var admin = require('./routes/admin');
 var comp = require('./routes/company');
+var guest = require('./routes/tourist');
 
 
 const req = require('express/lib/request');
@@ -57,7 +58,8 @@ var app = express();
  app.use('/form', signup);
  app.use('/login', auth);
  app.use('/admin', admin);
- app.use('/company', comp)
+ app.use('/company', comp);
+ app.use('/guest', guest);
 
  app.listen(port, () => console.log(`Listening on port ${port}..`));
 
